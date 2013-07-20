@@ -1,0 +1,67 @@
+//
+//  WUEmoticonsKeyboard.h
+//  WeicoUI
+//
+//  Created by YuAo on 1/24/13.
+//  Copyright (c) 2013 微酷奥(北京)科技有限公司. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "WUEmoticonsKeyboardKeyItemGroup.h"
+#import "WUEmoticonsKeyboardKeyItem.h"
+#import "WUEmoticonsKeyboardKeysPageFlowLayout.h"
+#import "WUEmoticonsKeyboardKeyCell.h"
+
+extern NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification;
+
+typedef NS_ENUM(NSUInteger, WUEmoticonsKeyboardButton) {
+    WUEmoticonsKeyboardButtonKeyboardSwitch,
+    WUEmoticonsKeyboardButtonBackspace
+};
+
+@interface WUEmoticonsKeyboard : UIView <UIAppearance,UIAppearanceContainer>
+
+@property (nonatomic)      BOOL    enableStandardSystemKeyboardClickSound;
+
+/*
+ a array of WUEmoticonsKeyboardKeyItemGroup.
+ */
+@property (nonatomic,copy) NSArray *keyItemGroups;
+
+@property (nonatomic,copy) void    (^keyItemGroupPressedKeyCellChangedBlock)(WUEmoticonsKeyboardKeyItemGroup *keyItemGroup, WUEmoticonsKeyboardKeyCell *fromKeyCell, WUEmoticonsKeyboardKeyCell *toKeyCell);
+/*
+ Note:
+ Use the `UIResponder (WUEmoticonsKeyboard)` -switchToEmoticonsKeyboard: method to make a textInput switch to a WUEmoticonsKeyboard.
+ The textInput object will retain the WUEmoticonsKeyboard which attached to it.
+ 
+ You may get the WUEmoticonsKeyboard object though the textInput's inputView or emoticonsKeyboard property.
+*/
+@property (nonatomic,weak,readonly) UIResponder<UITextInput> *textInput;
+
+/*
+ Size of the keyboard. The default implemention return a CGSize of 320x216.
+ You may override this method to provide a different bounding size.
+*/
+- (CGSize)keyboardSize;
+
++ (instancetype)keyboard;
+
+#pragma mark - Apperance
+
+- (void)setBackgroundImage:(UIImage *)image UI_APPEARANCE_SELECTOR;
+- (void)setBackgroundImage:(UIImage *)image forKeyItemGroup:(WUEmoticonsKeyboardKeyItemGroup *)keyItemGroup UI_APPEARANCE_SELECTOR;
+- (void)setBackgroundColor:(UIColor *)backgroundColor forKeyItemGroup:(WUEmoticonsKeyboardKeyItemGroup *)keyItemGroup UI_APPEARANCE_SELECTOR;
+
+- (void)setImage:(UIImage *)image forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state UI_APPEARANCE_SELECTOR;
+- (UIImage *)imageForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state;
+
+- (void)setBackgroundImage:(UIImage *)image forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state UI_APPEARANCE_SELECTOR;
+- (UIImage *)backgroundImageForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state;
+
+@end
+
+@interface UIResponder (WUEmoticonsKeyboard)
+@property (readonly, strong) WUEmoticonsKeyboard *emoticonsKeyboard;
+- (void)switchToDefaultKeyboard;
+- (void)switchToEmoticonsKeyboard:(WUEmoticonsKeyboard *)keyboard;
+@end
