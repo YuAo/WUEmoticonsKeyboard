@@ -48,29 +48,33 @@ NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"W
 
 #pragma mark - Text Input
 
-- (BOOL)shouldReplaceTextInRange:(UITextRange *)range replacementText:(NSString *)text {
+- (BOOL)textInputShouldReplaceTextInRange:(UITextRange *)range replacementText:(NSString *)replacementText {
     
     BOOL shouldChange = YES;
     
+    NSInteger startOffset = [self.textInput offsetFromPosition:self.textInput.beginningOfDocument toPosition:range.start];
+    NSInteger endOffset = [self.textInput offsetFromPosition:self.textInput.beginningOfDocument toPosition:range.end];
+    NSRange replacementRange = NSMakeRange(startOffset, endOffset - startOffset);
+
     if ([self.textInput isKindOfClass:UITextView.class]) {
         UITextView *textView = (UITextView *)self.textInput;
         if ([textView.delegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)]){
-            NSInteger startOffset = [textView offsetFromPosition:self.textInput.beginningOfDocument toPosition:range.start];
-            NSInteger endOffset = [textView offsetFromPosition:self.textInput.beginningOfDocument toPosition:range.end];
-            NSRange textRange = NSMakeRange(startOffset, endOffset - startOffset);
-            shouldChange = [textView.delegate textView:textView shouldChangeTextInRange:textRange replacementText:text];
+            shouldChange = [textView.delegate textView:textView shouldChangeTextInRange:replacementRange replacementText:replacementText];
         }
     }
     
     if ([self.textInput isKindOfClass:UITextField.class]) {
-        /////..... May need fix.
+        UITextField *textField = (UITextField *)self.textInput;
+        if ([textField.delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
+            shouldChange = [textField.delegate textField:textField shouldChangeCharactersInRange:replacementRange replacementString:replacementText];
+        }
     }
     
     return shouldChange;
 }
 
 - (void)replaceTextInRange:(UITextRange *)range withText:(NSString *)text {
-    if (range && [self shouldReplaceTextInRange:range replacementText:text]) {
+    if (range && [self textInputShouldReplaceTextInRange:range replacementText:text]) {
         [self.textInput replaceRange:range withText:text];
     }
 }
