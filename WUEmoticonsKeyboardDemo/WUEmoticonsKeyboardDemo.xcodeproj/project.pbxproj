@@ -52,6 +52,10 @@
 		9D8620B7179EC09000E0C429 /* weico.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620B1179EC09000E0C429 /* weico.png */; };
 		9D8620B8179EC09000E0C429 /* weico@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620B2179EC09000E0C429 /* weico@2x.png */; };
 		9D8620BA179EC1D900E0C429 /* EmotionTextKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620B9179EC1D900E0C429 /* EmotionTextKeys.plist */; };
+		9D8620BF179ECAEF00E0C429 /* keyboard_segment_normal_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620BB179ECAEF00E0C429 /* keyboard_segment_normal_selected@2x.png */; };
+		9D8620C0179ECAEF00E0C429 /* keyboard_segment_normal_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620BC179ECAEF00E0C429 /* keyboard_segment_normal_selected.png */; };
+		9D8620C1179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620BD179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png */; };
+		9D8620C2179ECAEF00E0C429 /* keyboard_segment_selected_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620BE179ECAEF00E0C429 /* keyboard_segment_selected_normal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +120,10 @@
 		9D8620B1179EC09000E0C429 /* weico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weico.png; sourceTree = "<group>"; };
 		9D8620B2179EC09000E0C429 /* weico@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weico@2x.png"; sourceTree = "<group>"; };
 		9D8620B9179EC1D900E0C429 /* EmotionTextKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmotionTextKeys.plist; sourceTree = "<group>"; };
+		9D8620BB179ECAEF00E0C429 /* keyboard_segment_normal_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_segment_normal_selected@2x.png"; sourceTree = "<group>"; };
+		9D8620BC179ECAEF00E0C429 /* keyboard_segment_normal_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_segment_normal_selected.png; sourceTree = "<group>"; };
+		9D8620BD179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_segment_selected_normal@2x.png"; sourceTree = "<group>"; };
+		9D8620BE179ECAEF00E0C429 /* keyboard_segment_selected_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_segment_selected_normal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +237,10 @@
 		9D8519CC179ADA53009542D9 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9D8620BB179ECAEF00E0C429 /* keyboard_segment_normal_selected@2x.png */,
+				9D8620BC179ECAEF00E0C429 /* keyboard_segment_normal_selected.png */,
+				9D8620BD179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png */,
+				9D8620BE179ECAEF00E0C429 /* keyboard_segment_selected_normal.png */,
 				9D8519CD179ADA53009542D9 /* keyboard_bg.png */,
 				9D8519CE179ADA53009542D9 /* keyboard_bg@2x.png */,
 				9D8519CF179ADA53009542D9 /* keyboard_del.png */,
@@ -346,6 +358,10 @@
 				9D8620B7179EC09000E0C429 /* weico.png in Resources */,
 				9D8620B8179EC09000E0C429 /* weico@2x.png in Resources */,
 				9D8620BA179EC1D900E0C429 /* EmotionTextKeys.plist in Resources */,
+				9D8620BF179ECAEF00E0C429 /* keyboard_segment_normal_selected@2x.png in Resources */,
+				9D8620C0179ECAEF00E0C429 /* keyboard_segment_normal_selected.png in Resources */,
+				9D8620C1179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png in Resources */,
+				9D8620C2179ECAEF00E0C429 /* keyboard_segment_selected_normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
