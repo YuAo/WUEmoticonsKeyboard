@@ -56,6 +56,14 @@
 		9D8620C0179ECAEF00E0C429 /* keyboard_segment_normal_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620BC179ECAEF00E0C429 /* keyboard_segment_normal_selected.png */; };
 		9D8620C1179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620BD179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png */; };
 		9D8620C2179ECAEF00E0C429 /* keyboard_segment_selected_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620BE179ECAEF00E0C429 /* keyboard_segment_selected_normal.png */; };
+		9D8620CB179ED30F00E0C429 /* keyboard_emotion_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620C3179ED30F00E0C429 /* keyboard_emotion_selected@2x.png */; };
+		9D8620CC179ED30F00E0C429 /* keyboard_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620C4179ED30F00E0C429 /* keyboard_text.png */; };
+		9D8620CD179ED30F00E0C429 /* keyboard_text_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620C5179ED30F00E0C429 /* keyboard_text_selected.png */; };
+		9D8620CE179ED30F00E0C429 /* keyboard_text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620C6179ED30F00E0C429 /* keyboard_text@2x.png */; };
+		9D8620CF179ED30F00E0C429 /* keyboard_text_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620C7179ED30F00E0C429 /* keyboard_text_selected@2x.png */; };
+		9D8620D0179ED30F00E0C429 /* keyboard_emotion_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620C8179ED30F00E0C429 /* keyboard_emotion_selected.png */; };
+		9D8620D1179ED30F00E0C429 /* keyboard_emotion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620C9179ED30F00E0C429 /* keyboard_emotion.png */; };
+		9D8620D2179ED30F00E0C429 /* keyboard_emotion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8620CA179ED30F00E0C429 /* keyboard_emotion@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +132,14 @@
 		9D8620BC179ECAEF00E0C429 /* keyboard_segment_normal_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_segment_normal_selected.png; sourceTree = "<group>"; };
 		9D8620BD179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_segment_selected_normal@2x.png"; sourceTree = "<group>"; };
 		9D8620BE179ECAEF00E0C429 /* keyboard_segment_selected_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_segment_selected_normal.png; sourceTree = "<group>"; };
+		9D8620C3179ED30F00E0C429 /* keyboard_emotion_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_emotion_selected@2x.png"; sourceTree = "<group>"; };
+		9D8620C4179ED30F00E0C429 /* keyboard_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_text.png; sourceTree = "<group>"; };
+		9D8620C5179ED30F00E0C429 /* keyboard_text_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_text_selected.png; sourceTree = "<group>"; };
+		9D8620C6179ED30F00E0C429 /* keyboard_text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_text@2x.png"; sourceTree = "<group>"; };
+		9D8620C7179ED30F00E0C429 /* keyboard_text_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_text_selected@2x.png"; sourceTree = "<group>"; };
+		9D8620C8179ED30F00E0C429 /* keyboard_emotion_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_emotion_selected.png; sourceTree = "<group>"; };
+		9D8620C9179ED30F00E0C429 /* keyboard_emotion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard_emotion.png; sourceTree = "<group>"; };
+		9D8620CA179ED30F00E0C429 /* keyboard_emotion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_emotion@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +253,14 @@
 		9D8519CC179ADA53009542D9 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9D8620C3179ED30F00E0C429 /* keyboard_emotion_selected@2x.png */,
+				9D8620C4179ED30F00E0C429 /* keyboard_text.png */,
+				9D8620C5179ED30F00E0C429 /* keyboard_text_selected.png */,
+				9D8620C6179ED30F00E0C429 /* keyboard_text@2x.png */,
+				9D8620C7179ED30F00E0C429 /* keyboard_text_selected@2x.png */,
+				9D8620C8179ED30F00E0C429 /* keyboard_emotion_selected.png */,
+				9D8620C9179ED30F00E0C429 /* keyboard_emotion.png */,
+				9D8620CA179ED30F00E0C429 /* keyboard_emotion@2x.png */,
 				9D8620BB179ECAEF00E0C429 /* keyboard_segment_normal_selected@2x.png */,
 				9D8620BC179ECAEF00E0C429 /* keyboard_segment_normal_selected.png */,
 				9D8620BD179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png */,
@@ -362,6 +386,14 @@
 				9D8620C0179ECAEF00E0C429 /* keyboard_segment_normal_selected.png in Resources */,
 				9D8620C1179ECAEF00E0C429 /* keyboard_segment_selected_normal@2x.png in Resources */,
 				9D8620C2179ECAEF00E0C429 /* keyboard_segment_selected_normal.png in Resources */,
+				9D8620CB179ED30F00E0C429 /* keyboard_emotion_selected@2x.png in Resources */,
+				9D8620CC179ED30F00E0C429 /* keyboard_text.png in Resources */,
+				9D8620CD179ED30F00E0C429 /* keyboard_text_selected.png in Resources */,
+				9D8620CE179ED30F00E0C429 /* keyboard_text@2x.png in Resources */,
+				9D8620CF179ED30F00E0C429 /* keyboard_text_selected@2x.png in Resources */,
+				9D8620D0179ED30F00E0C429 /* keyboard_emotion_selected.png in Resources */,
+				9D8620D1179ED30F00E0C429 /* keyboard_emotion.png in Resources */,
+				9D8620D2179ED30F00E0C429 /* keyboard_emotion@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

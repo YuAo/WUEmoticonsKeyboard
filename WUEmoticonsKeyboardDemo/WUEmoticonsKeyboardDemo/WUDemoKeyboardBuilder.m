@@ -34,7 +34,8 @@
         //Icon key group
         WUEmoticonsKeyboardKeyItemGroup *imageIconsGroup = [[WUEmoticonsKeyboardKeyItemGroup alloc] init];
         imageIconsGroup.keyItems = @[loveKey,applaudKey,weicoKey];
-        imageIconsGroup.title = @"Icons";
+        imageIconsGroup.image = [UIImage imageNamed:@"keyboard_emotion"];
+        imageIconsGroup.selectedImage = [UIImage imageNamed:@"keyboard_emotion_selected"];
         
         //Text keys
         NSArray *textKeys = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EmotionTextKeys" ofType:@"plist"]];
@@ -58,7 +59,8 @@
         textIconsGroup.keyItems = textKeyItems;
         textIconsGroup.keyItemsLayout = textIconsLayout;
         textIconsGroup.keyItemCellClass = WUDemoKeyboardTextKeyCell.class;
-        textIconsGroup.title = @"Text";
+        textIconsGroup.image = [UIImage imageNamed:@"keyboard_text"];
+        textIconsGroup.selectedImage = [UIImage imageNamed:@"keyboard_text_selected"];
         
         //Set keyItemGroups
         keyboard.keyItemGroups = @[imageIconsGroup,textIconsGroup];
