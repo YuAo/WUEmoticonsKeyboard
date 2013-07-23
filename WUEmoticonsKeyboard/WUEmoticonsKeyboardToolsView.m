@@ -65,8 +65,19 @@ CGSize  const WUEmoticonsKeyboardToolsViewActionButtonSize  = (CGSize){45,WUEmot
 }
 
 - (void)segmentedControlValueChanged:(UISegmentedControl *)sender {
-    WUEmoticonsKeyboardKeyItemGroup *selectedKeyItemGroup = [self.keyItemGroups objectAtIndex:sender.selectedSegmentIndex];
+    [self.keyItemGroups enumerateObjectsUsingBlock:^(WUEmoticonsKeyboardKeyItemGroup *obj, NSUInteger idx, BOOL *stop) {
+        if (obj.image) {
+            if (obj.selectedImage && idx == self.segmentedControl.selectedSegmentIndex) {
+                [self.segmentedControl setImage:obj.selectedImage forSegmentAtIndex:idx];
+            } else {
+                [self.segmentedControl setImage:obj.image forSegmentAtIndex:idx];                
+            }
+        } else {
+            [self.segmentedControl setTitle:obj.title forSegmentAtIndex:idx];
+        }
+    }];
     if (self.keyItemGroupSelectedBlock) {
+        WUEmoticonsKeyboardKeyItemGroup *selectedKeyItemGroup = [self.keyItemGroups objectAtIndex:self.segmentedControl.selectedSegmentIndex];
         self.keyItemGroupSelectedBlock(selectedKeyItemGroup);
     }
 }
