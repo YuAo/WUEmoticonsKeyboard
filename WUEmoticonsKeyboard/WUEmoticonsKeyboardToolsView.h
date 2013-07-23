@@ -15,6 +15,7 @@ extern CGSize  const WUEmoticonsKeyboardToolsViewActionButtonSize;
 @interface WUEmoticonsKeyboardToolsView : UIView
 
 @property (nonatomic,strong) NSArray *keyItemGroups;
+
 @property (nonatomic,copy)   void    (^keyboardSwitchButtonTappedBlock)(void);
 @property (nonatomic,copy)   void    (^backspaceButtonTappedBlock)(void);
 @property (nonatomic,copy)   void    (^keyItemGroupSelectedBlock)(WUEmoticonsKeyboardKeyItemGroup *keyItemGroup);
