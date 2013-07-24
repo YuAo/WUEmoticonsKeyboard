@@ -4,6 +4,8 @@ A customizable emoticons keyboard for iOS.
 
 WUEmoticonsKeyboard is created under the development of [Weico+](http://plus.weico.com), and is already being used in __[Weico+](http://plus.weico.com) for iOS__'s production code.
 
+![ScreenShot](Screenshots/screenshot1.png) ![ScreenShot](Screenshots/screenshot2.png)
+
 #Features
 
 1. Fully customizable.
@@ -15,6 +17,8 @@ WUEmoticonsKeyboard is created under the development of [Weico+](http://plus.wei
 #Usage
 
 There's a demo project which shows you how to build and integrate the emotion icon keyboard into your app.
+
+__Note: All the graphical resources and images used in the demo project is COPYRIGHTED (© eico design) and MUST NOT be used in your project.__
 
 #Requirements
 
