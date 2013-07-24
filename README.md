@@ -1,6 +1,6 @@
 WUEmoticonsKeyboard
 ===================
-A customizable emoticons keyboard for iOS.
+Customizable emoticons keyboard for iOS.
 
 WUEmoticonsKeyboard is created under the development of [Weico+](http://plus.weico.com), and is already being used in __[Weico+](http://plus.weico.com) for iOS__'s production code.
 
