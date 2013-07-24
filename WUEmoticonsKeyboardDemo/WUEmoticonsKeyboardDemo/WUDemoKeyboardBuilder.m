@@ -110,7 +110,7 @@
         [[self sharedEmoticonsKeyboard] addSubview:pressedKeyCellPopupView];
     });
     
-    if ([keyItemGroup.title isEqualToString:@"Icons"]) {
+    if ([[self sharedEmoticonsKeyboard].keyItemGroups indexOfObject:keyItemGroup] == 0) {
         [[self sharedEmoticonsKeyboard] bringSubviewToFront:pressedKeyCellPopupView];
         if (toCell) {
             pressedKeyCellPopupView.keyItem = toCell.keyItem;
