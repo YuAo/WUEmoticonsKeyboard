@@ -4,7 +4,7 @@ A customizable emoticons keyboard for iOS.
 
 WUEmoticonsKeyboard is created under the development of [Weico+](http://plus.weico.com), and is already being used in __[Weico+](http://plus.weico.com) for iOS__'s production code.
 
-![ScreenShot](Screenshots/Screenshot1.png) ![ScreenShot](Screenshots/Screenshot2.png)
+![ScreenShot](Screenshots/Screenshot1.png) _ ![ScreenShot](Screenshots/Screenshot2.png)
 
 #Features
 
