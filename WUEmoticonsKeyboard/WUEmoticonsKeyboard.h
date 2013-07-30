@@ -14,6 +14,8 @@
 
 extern NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification;
 
+extern CGSize const WUEmoticonsKeyboardDefaultSize;
+
 typedef NS_ENUM(NSUInteger, WUEmoticonsKeyboardButton) {
     WUEmoticonsKeyboardButtonKeyboardSwitch,
     WUEmoticonsKeyboardButtonBackspace
@@ -37,12 +39,6 @@ typedef NS_ENUM(NSUInteger, WUEmoticonsKeyboardButton) {
  You may get the WUEmoticonsKeyboard object though the textInput's inputView or emoticonsKeyboard property.
 */
 @property (nonatomic,weak,readonly) UIResponder<UITextInput> *textInput;
-
-/*
- Size of the keyboard. The default implemention return a CGSize of 320x216.
- You may override this method to provide a different bounding size.
-*/
-- (CGSize)keyboardSize;
 
 + (instancetype)keyboard;
 

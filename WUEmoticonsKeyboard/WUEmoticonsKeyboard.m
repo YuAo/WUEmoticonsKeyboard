@@ -13,6 +13,8 @@
 
 NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification";
 
+CGSize const WUEmoticonsKeyboardDefaultSize = (CGSize){320,216};
+
 @interface WUEmoticonsKeyboard () <UIInputViewAudioFeedback>
 @property (nonatomic,weak,readwrite) UIResponder<UITextInput>     *textInput;
 @property (nonatomic,weak)           WUEmoticonsKeyboardToolsView *toolsView;
@@ -115,10 +117,6 @@ NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"W
 
 #pragma mark - create & init
 
-- (CGSize)keyboardSize {
-    return CGSizeMake(320, 216);
-}
-
 - (id)init {
     return [self initWithFrame:CGRectZero];
 }
@@ -136,7 +134,10 @@ NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"W
 }
 
 - (void)setup {
-    self.frame = CGRectMake(0, 0, self.keyboardSize.width, self.keyboardSize.height);
+    if (CGRectIsEmpty(self.bounds)) {
+        self.bounds = (CGRect){CGPointZero,WUEmoticonsKeyboardDefaultSize};
+    }
+    
     self.backgroundColor = [UIColor blackColor];
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
@@ -162,7 +163,7 @@ NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"W
 }
 
 + (instancetype)keyboard {
-    WUEmoticonsKeyboard *keyboard = [[WUEmoticonsKeyboard alloc] initWithFrame:CGRectZero];
+    WUEmoticonsKeyboard *keyboard = [[WUEmoticonsKeyboard alloc] init];
     return keyboard;
 }
 

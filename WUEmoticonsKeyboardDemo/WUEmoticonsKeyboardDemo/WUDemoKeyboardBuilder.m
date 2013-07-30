@@ -16,7 +16,8 @@
     static WUEmoticonsKeyboard *_sharedEmoticonsKeyboard;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        WUEmoticonsKeyboard *keyboard = [[WUEmoticonsKeyboard alloc] init];
+        //create a keyboard of default size
+        WUEmoticonsKeyboard *keyboard = [WUEmoticonsKeyboard keyboard];
         
         //Icon keys
         WUEmoticonsKeyboardKeyItem *loveKey = [[WUEmoticonsKeyboardKeyItem alloc] init];
