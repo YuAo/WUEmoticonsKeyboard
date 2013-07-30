@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, WUEmoticonsKeyboardButton) {
 @property (nonatomic)      BOOL    enableStandardSystemKeyboardClickSound;
 
 /*
- a array of WUEmoticonsKeyboardKeyItemGroup.
+ an array of WUEmoticonsKeyboardKeyItemGroup.
  */
 @property (nonatomic,copy) NSArray *keyItemGroups;
 

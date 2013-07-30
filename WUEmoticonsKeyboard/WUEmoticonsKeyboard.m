@@ -119,35 +119,46 @@ NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"W
     return CGSizeMake(320, 216);
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.frame = CGRectMake(0, 0, self.keyboardSize.width, self.keyboardSize.height);
-        self.backgroundColor = [UIColor blackColor];
-        
-        UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self addSubview:backgroundImageView];
-        self.backgroundImageView = backgroundImageView;
-        
-        WUEmoticonsKeyboard *__weak weakSelf = self;
-        
-        WUEmoticonsKeyboardToolsView *toolsView = [[WUEmoticonsKeyboardToolsView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - WUEmoticonsKeyboardToolsViewHeight, CGRectGetWidth(self.bounds), WUEmoticonsKeyboardToolsViewHeight)];
-        toolsView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-        [toolsView setKeyboardSwitchButtonTappedBlock:^{
-            [weakSelf switchToDefaultKeyboard];
-        }];
-        [toolsView setBackspaceButtonTappedBlock:^{
-            [weakSelf backspace];
-        }];
-        [toolsView setKeyItemGroupSelectedBlock:^(WUEmoticonsKeyboardKeyItemGroup *keyItemGroup) {
-            [weakSelf switchToKeyItemGroup:keyItemGroup];
-        }];
-        [self addSubview:toolsView];
-        self.toolsView = toolsView;
+- (id)init {
+    return [self initWithFrame:CGRectZero];
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self setup];
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self setup];
+}
+
+- (void)setup {
+    self.frame = CGRectMake(0, 0, self.keyboardSize.width, self.keyboardSize.height);
+    self.backgroundColor = [UIColor blackColor];
+    
+    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+    backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self addSubview:backgroundImageView];
+    self.backgroundImageView = backgroundImageView;
+    
+    WUEmoticonsKeyboard *__weak weakSelf = self;
+    
+    WUEmoticonsKeyboardToolsView *toolsView = [[WUEmoticonsKeyboardToolsView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - WUEmoticonsKeyboardToolsViewHeight, CGRectGetWidth(self.bounds), WUEmoticonsKeyboardToolsViewHeight)];
+    toolsView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [toolsView setKeyboardSwitchButtonTappedBlock:^{
+        [weakSelf switchToDefaultKeyboard];
+    }];
+    [toolsView setBackspaceButtonTappedBlock:^{
+        [weakSelf backspace];
+    }];
+    [toolsView setKeyItemGroupSelectedBlock:^(WUEmoticonsKeyboardKeyItemGroup *keyItemGroup) {
+        [weakSelf switchToKeyItemGroup:keyItemGroup];
+    }];
+    [self addSubview:toolsView];
+    self.toolsView = toolsView;
 }
 
 + (instancetype)keyboard {
