@@ -18,8 +18,8 @@
     if (self = [super initWithFrame:frame]) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.userInteractionEnabled = NO;
-        button.frame = self.bounds;
-        [self addSubview:button];
+        button.frame = self.contentView.bounds;
+        [self.contentView addSubview:button];
         self.keyButton = button;
     }
     return self;
