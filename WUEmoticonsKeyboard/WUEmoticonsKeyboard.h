@@ -54,6 +54,8 @@ typedef NS_ENUM(NSUInteger, WUEmoticonsKeyboardButton) {
 - (void)setBackgroundImage:(UIImage *)image forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state UI_APPEARANCE_SELECTOR;
 - (UIImage *)backgroundImageForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state;
 
+@property (nonatomic) CGFloat toolsViewHeight UI_APPEARANCE_SELECTOR; //Default 45.0f
+
 @end
 
 @interface UIResponder (WUEmoticonsKeyboard)

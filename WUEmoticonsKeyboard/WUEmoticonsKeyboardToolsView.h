@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WUEmoticonsKeyboardKeyItemGroup.h"
 
-extern CGFloat const WUEmoticonsKeyboardToolsViewHeight;
-extern CGSize  const WUEmoticonsKeyboardToolsViewActionButtonSize;
-
 @interface WUEmoticonsKeyboardToolsView : UIView
 
 @property (nonatomic,strong) NSArray *keyItemGroups;

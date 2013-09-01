@@ -8,9 +8,6 @@
 
 #import "WUEmoticonsKeyboardToolsView.h"
 
-CGFloat const WUEmoticonsKeyboardToolsViewHeight            = 45;
-CGSize  const WUEmoticonsKeyboardToolsViewActionButtonSize  = (CGSize){45,WUEmoticonsKeyboardToolsViewHeight};
-
 @interface WUEmoticonsKeyboardToolsView ()
 @property (nonatomic,weak,readwrite) UIButton           *keyboardSwitchButton;
 @property (nonatomic,weak,readwrite) UIButton           *backspaceButton;
@@ -23,29 +20,34 @@ CGSize  const WUEmoticonsKeyboardToolsViewActionButtonSize  = (CGSize){45,WUEmot
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.frame = (CGRect){frame.origin,{CGRectGetWidth(frame),WUEmoticonsKeyboardToolsViewHeight}};
-        
         UIButton *keyboardSwitchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        keyboardSwitchButton.frame = (CGRect){CGPointZero,WUEmoticonsKeyboardToolsViewActionButtonSize};
         keyboardSwitchButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
         [keyboardSwitchButton addTarget:self action:@selector(keyboardSwitchButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:keyboardSwitchButton];
         self.keyboardSwitchButton = keyboardSwitchButton;
         
         UIButton *backspaceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backspaceButton.frame = (CGRect){ {CGRectGetWidth(self.bounds) - WUEmoticonsKeyboardToolsViewActionButtonSize.width, 0} ,WUEmoticonsKeyboardToolsViewActionButtonSize};
         backspaceButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
         [backspaceButton addTarget:self action:@selector(backspaceButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:backspaceButton];
         self.backspaceButton = backspaceButton;
         
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithFrame:CGRectMake(WUEmoticonsKeyboardToolsViewActionButtonSize.width, 0, CGRectGetWidth(self.bounds) - WUEmoticonsKeyboardToolsViewActionButtonSize.width * 2, CGRectGetHeight(frame))];
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithFrame:CGRectZero];
         segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [segmentedControl addTarget:self action:@selector(segmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:segmentedControl];
         self.segmentedControl = segmentedControl;
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CGSize actionButtonSize = CGSizeMake(CGRectGetHeight(self.bounds), CGRectGetHeight(self.bounds));
+    self.keyboardSwitchButton.frame = (CGRect){CGPointZero,actionButtonSize};
+    self.backspaceButton.frame = (CGRect){ {CGRectGetWidth(self.bounds) - actionButtonSize.width, 0} ,actionButtonSize};
+    self.segmentedControl.frame = CGRectMake(actionButtonSize.width, 0, CGRectGetWidth(self.bounds) - actionButtonSize.width * 2, CGRectGetHeight(self.bounds));
 }
 
 - (void)setKeyItemGroups:(NSArray *)keyItemGroups {

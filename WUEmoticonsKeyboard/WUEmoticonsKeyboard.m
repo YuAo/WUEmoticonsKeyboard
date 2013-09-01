@@ -13,7 +13,9 @@
 
 NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification";
 
-CGSize const WUEmoticonsKeyboardDefaultSize = (CGSize){320,216};
+CGSize  const WUEmoticonsKeyboardDefaultSize            = (CGSize){320,216};
+CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
+
 
 @interface WUEmoticonsKeyboard () <UIInputViewAudioFeedback>
 @property (nonatomic,weak,readwrite) UIResponder<UITextInput>     *textInput;
@@ -147,17 +149,23 @@ CGSize const WUEmoticonsKeyboardDefaultSize = (CGSize){320,216};
     
     WUEmoticonsKeyboard *__weak weakSelf = self;
     
-    WUEmoticonsKeyboardToolsView *toolsView = [[WUEmoticonsKeyboardToolsView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - WUEmoticonsKeyboardToolsViewHeight, CGRectGetWidth(self.bounds), WUEmoticonsKeyboardToolsViewHeight)];
+    self.toolsViewHeight = WUEmoticonsKeyboardToolsViewDefaultHeight;
+    
+    WUEmoticonsKeyboardToolsView *toolsView = [[WUEmoticonsKeyboardToolsView alloc] initWithFrame:self.toolsViewFrame];
     toolsView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    
     [toolsView setKeyboardSwitchButtonTappedBlock:^{
         [weakSelf switchToDefaultKeyboard];
     }];
+    
     [toolsView setBackspaceButtonTappedBlock:^{
         [weakSelf backspace];
     }];
+    
     [toolsView setKeyItemGroupSelectedBlock:^(WUEmoticonsKeyboardKeyItemGroup *keyItemGroup) {
         [weakSelf switchToKeyItemGroup:keyItemGroup];
     }];
+    
     [self addSubview:toolsView];
     self.toolsView = toolsView;
 }
@@ -167,11 +175,30 @@ CGSize const WUEmoticonsKeyboardDefaultSize = (CGSize){320,216};
     return keyboard;
 }
 
-#pragma mark - KeyItems
+#pragma mark - Layout
+
+- (void)setToolsViewHeight:(CGFloat)toolsViewHeight {
+    _toolsViewHeight = toolsViewHeight;
+    [self setNeedsLayout];
+}
+
+- (CGRect)toolsViewFrame {
+    return CGRectMake(0, CGRectGetHeight(self.bounds) - self.toolsViewHeight, CGRectGetWidth(self.bounds), self.toolsViewHeight);
+}
 
 - (CGRect)keyItemGroupViewFrame {
     return CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetMinY(self.toolsView.frame));
 }
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.toolsView.frame = self.toolsViewFrame;
+    [self.keyItemGroupViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+        view.frame = self.keyItemGroupViewFrame;
+    }];
+}
+
+#pragma mark - KeyItems
 
 - (void)setKeyItemGroups:(NSArray *)keyItemGroups {
     _keyItemGroups = [keyItemGroups copy];
@@ -180,9 +207,7 @@ CGSize const WUEmoticonsKeyboardDefaultSize = (CGSize){320,216};
 }
 
 - (void)reloadKeyItemGroupViews {
-    [self.keyItemGroupViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [obj removeFromSuperview];
-    }];
+    [self.keyItemGroupViews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     __weak __typeof(&*self)weakSelf = self;
     self.keyItemGroupViews = nil;
