@@ -271,6 +271,7 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
 
 - (void)setImage:(UIImage *)image forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state {
     [[self emoticonsKeyboardButtonOfType:button] setImage:image forState:state];
+    [self setNeedsLayout];
 }
 
 - (UIImage *)imageForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state {
@@ -279,6 +280,7 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
 
 - (void)setBackgroundImage:(UIImage *)image forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state {
     [[self emoticonsKeyboardButtonOfType:button] setBackgroundImage:image forState:state];
+    [self setNeedsLayout];
 }
 
 - (UIImage *)backgroundImageForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state {
