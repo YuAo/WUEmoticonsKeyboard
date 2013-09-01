@@ -44,10 +44,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    CGSize actionButtonSize = CGSizeMake(CGRectGetHeight(self.bounds), CGRectGetHeight(self.bounds));
-    self.keyboardSwitchButton.frame = (CGRect){CGPointZero,actionButtonSize};
-    self.backspaceButton.frame = (CGRect){ {CGRectGetWidth(self.bounds) - actionButtonSize.width, 0} ,actionButtonSize};
-    self.segmentedControl.frame = CGRectMake(actionButtonSize.width, 0, CGRectGetWidth(self.bounds) - actionButtonSize.width * 2, CGRectGetHeight(self.bounds));
+    CGSize keyboardSwitchButtonSize = [self.keyboardSwitchButton sizeThatFits:self.bounds.size];
+    CGSize backspaceButtonSize = [self.backspaceButton sizeThatFits:self.bounds.size];
+    
+    self.keyboardSwitchButton.frame = (CGRect){CGPointZero,keyboardSwitchButtonSize};
+    self.backspaceButton.frame = (CGRect){ {CGRectGetWidth(self.bounds) - backspaceButtonSize.width, 0} ,backspaceButtonSize};
+    self.segmentedControl.frame = CGRectMake(keyboardSwitchButtonSize.width, 0, CGRectGetWidth(self.bounds) - keyboardSwitchButtonSize.width - backspaceButtonSize.width, CGRectGetHeight(self.bounds));
 }
 
 - (void)setKeyItemGroups:(NSArray *)keyItemGroups {
