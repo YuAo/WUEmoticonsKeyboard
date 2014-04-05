@@ -35,8 +35,14 @@
         //Icon key group
         WUEmoticonsKeyboardKeyItemGroup *imageIconsGroup = [[WUEmoticonsKeyboardKeyItemGroup alloc] init];
         imageIconsGroup.keyItems = @[loveKey,applaudKey,weicoKey];
-        imageIconsGroup.image = [UIImage imageNamed:@"keyboard_emotion"];
-        imageIconsGroup.selectedImage = [UIImage imageNamed:@"keyboard_emotion_selected"];
+        UIImage *keyboardEmotionImage = [UIImage imageNamed:@"keyboard_emotion"];
+        UIImage *keyboardEmotionSelectedImage = [UIImage imageNamed:@"keyboard_emotion_selected"];
+        if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
+            keyboardEmotionImage = [keyboardEmotionImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            keyboardEmotionSelectedImage = [keyboardEmotionSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        }
+        imageIconsGroup.image = keyboardEmotionImage;
+        imageIconsGroup.selectedImage = keyboardEmotionSelectedImage;
         
         //Text keys
         NSArray *textKeys = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EmotionTextKeys" ofType:@"plist"]];
@@ -60,8 +66,15 @@
         textIconsGroup.keyItems = textKeyItems;
         textIconsGroup.keyItemsLayout = textIconsLayout;
         textIconsGroup.keyItemCellClass = WUDemoKeyboardTextKeyCell.class;
-        textIconsGroup.image = [UIImage imageNamed:@"keyboard_text"];
-        textIconsGroup.selectedImage = [UIImage imageNamed:@"keyboard_text_selected"];
+        
+        UIImage *keyboardTextImage = [UIImage imageNamed:@"keyboard_text"];
+        UIImage *keyboardTextSelectedImage = [UIImage imageNamed:@"keyboard_text_selected"];
+        if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
+            keyboardTextImage = [keyboardTextImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            keyboardTextSelectedImage = [keyboardTextSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        }
+        textIconsGroup.image = keyboardTextImage;
+        textIconsGroup.selectedImage = keyboardTextSelectedImage;
         
         //Set keyItemGroups
         keyboard.keyItemGroups = @[imageIconsGroup,textIconsGroup];
