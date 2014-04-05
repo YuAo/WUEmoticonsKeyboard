@@ -57,6 +57,9 @@
     [self.segmentedControl removeAllSegments];
     [self.keyItemGroups enumerateObjectsUsingBlock:^(WUEmoticonsKeyboardKeyItemGroup *obj, NSUInteger idx, BOOL *stop) {
         if (obj.image) {
+            if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
+                obj.image = [obj.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            }
             [self.segmentedControl insertSegmentWithImage:obj.image atIndex:self.segmentedControl.numberOfSegments animated:NO];
         }else{
             [self.segmentedControl insertSegmentWithTitle:obj.title atIndex:self.segmentedControl.numberOfSegments animated:NO];
@@ -72,8 +75,14 @@
     [self.keyItemGroups enumerateObjectsUsingBlock:^(WUEmoticonsKeyboardKeyItemGroup *obj, NSUInteger idx, BOOL *stop) {
         if (obj.image) {
             if (obj.selectedImage && (NSInteger)idx == self.segmentedControl.selectedSegmentIndex) {
+                if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
+                    obj.selectedImage = [obj.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                }
                 [self.segmentedControl setImage:obj.selectedImage forSegmentAtIndex:idx];
             } else {
+                if ([UIImage instancesRespondToSelector:@selector(imageWithRenderingMode:)]) {
+                    obj.image = [obj.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                }
                 [self.segmentedControl setImage:obj.image forSegmentAtIndex:idx];                
             }
         } else {
