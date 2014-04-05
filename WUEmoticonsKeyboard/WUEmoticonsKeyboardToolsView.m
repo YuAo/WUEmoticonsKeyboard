@@ -71,7 +71,7 @@
 - (void)segmentedControlValueChanged:(UISegmentedControl *)sender {
     [self.keyItemGroups enumerateObjectsUsingBlock:^(WUEmoticonsKeyboardKeyItemGroup *obj, NSUInteger idx, BOOL *stop) {
         if (obj.image) {
-            if (obj.selectedImage && idx == self.segmentedControl.selectedSegmentIndex) {
+            if (obj.selectedImage && (NSInteger)idx == self.segmentedControl.selectedSegmentIndex) {
                 [self.segmentedControl setImage:obj.selectedImage forSegmentAtIndex:idx];
             } else {
                 [self.segmentedControl setImage:obj.image forSegmentAtIndex:idx];                
