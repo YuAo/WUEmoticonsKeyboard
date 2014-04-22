@@ -162,6 +162,10 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
         [weakSelf backspace];
     }];
     
+    [toolsView setSpaceButtonTappedBlock:^{
+        [weakSelf inputText:@" "];
+    }];
+    
     [toolsView setKeyItemGroupSelectedBlock:^(WUEmoticonsKeyboardKeyItemGroup *keyItemGroup) {
         [weakSelf switchToKeyItemGroup:keyItemGroup];
     }];
@@ -259,13 +263,12 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
     switch (type) {
         case WUEmoticonsKeyboardButtonKeyboardSwitch:
             return self.toolsView.keyboardSwitchButton;
-            break;
         case WUEmoticonsKeyboardButtonBackspace:
             return self.toolsView.backspaceButton;
-            break;
+        case WUEmoticonsKeyboardButtonSpace:
+            return self.toolsView.spaceButton;
         default:
             return nil;
-            break;
     }
 }
 
@@ -285,6 +288,15 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
 
 - (UIImage *)backgroundImageForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state {
     return [[self emoticonsKeyboardButtonOfType:button] backgroundImageForState:state];
+}
+
+- (void)setAttributedTitle:(NSAttributedString *)title forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state {
+    [[self emoticonsKeyboardButtonOfType:button] setAttributedTitle:title forState:state];
+    [self setNeedsLayout];
+}
+
+- (NSAttributedString *)attributedTitleForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state {
+    return [[self emoticonsKeyboardButtonOfType:button] attributedTitleForState:state];
 }
 
 - (void)setBackgroundImage:(UIImage *)image {

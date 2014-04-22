@@ -15,9 +15,11 @@
 
 @property (nonatomic,copy)   void    (^keyboardSwitchButtonTappedBlock)(void);
 @property (nonatomic,copy)   void    (^backspaceButtonTappedBlock)(void);
+@property (nonatomic,copy)   void    (^spaceButtonTappedBlock)(void);
 @property (nonatomic,copy)   void    (^keyItemGroupSelectedBlock)(WUEmoticonsKeyboardKeyItemGroup *keyItemGroup);
 
 @property (nonatomic,weak,readonly) UIButton *keyboardSwitchButton;
 @property (nonatomic,weak,readonly) UIButton *backspaceButton;
+@property (nonatomic,weak,readonly) UIButton *spaceButton;
 
 @end

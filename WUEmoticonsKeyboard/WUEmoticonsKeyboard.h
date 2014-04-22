@@ -18,7 +18,8 @@ extern CGSize const WUEmoticonsKeyboardDefaultSize;
 
 typedef NS_ENUM(NSUInteger, WUEmoticonsKeyboardButton) {
     WUEmoticonsKeyboardButtonKeyboardSwitch,
-    WUEmoticonsKeyboardButtonBackspace
+    WUEmoticonsKeyboardButtonBackspace,
+    WUEmoticonsKeyboardButtonSpace
 };
 
 @interface WUEmoticonsKeyboard : UIView <UIAppearance,UIAppearanceContainer>
@@ -53,6 +54,9 @@ typedef NS_ENUM(NSUInteger, WUEmoticonsKeyboardButton) {
 
 - (void)setBackgroundImage:(UIImage *)image forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state UI_APPEARANCE_SELECTOR;
 - (UIImage *)backgroundImageForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state;
+
+- (void)setAttributedTitle:(NSAttributedString *)title forButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state UI_APPEARANCE_SELECTOR;
+- (NSAttributedString *)attributedTitleForButton:(WUEmoticonsKeyboardButton)button state:(UIControlState)state;
 
 @property (nonatomic) CGFloat toolsViewHeight UI_APPEARANCE_SELECTOR; //Default 45.0f
 

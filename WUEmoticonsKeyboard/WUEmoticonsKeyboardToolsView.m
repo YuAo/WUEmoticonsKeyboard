@@ -11,6 +11,7 @@
 @interface WUEmoticonsKeyboardToolsView ()
 @property (nonatomic,weak,readwrite) UIButton           *keyboardSwitchButton;
 @property (nonatomic,weak,readwrite) UIButton           *backspaceButton;
+@property (nonatomic,weak,readwrite) UIButton           *spaceButton;
 @property (nonatomic,weak)           UISegmentedControl *segmentedControl;
 @end
 
@@ -37,6 +38,12 @@
         [segmentedControl addTarget:self action:@selector(segmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:segmentedControl];
         self.segmentedControl = segmentedControl;
+        
+        UIButton *spaceButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        spaceButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [spaceButton addTarget:self action:@selector(spaceButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:spaceButton];
+        self.spaceButton = spaceButton;
     }
     return self;
 }
@@ -49,7 +56,7 @@
     
     self.keyboardSwitchButton.frame = (CGRect){CGPointZero,keyboardSwitchButtonSize};
     self.backspaceButton.frame = (CGRect){ {CGRectGetWidth(self.bounds) - backspaceButtonSize.width, 0} ,backspaceButtonSize};
-    self.segmentedControl.frame = CGRectMake(keyboardSwitchButtonSize.width, 0, CGRectGetWidth(self.bounds) - keyboardSwitchButtonSize.width - backspaceButtonSize.width, CGRectGetHeight(self.bounds));
+    self.spaceButton.frame = self.segmentedControl.frame = CGRectMake(keyboardSwitchButtonSize.width, 0, CGRectGetWidth(self.bounds) - keyboardSwitchButtonSize.width - backspaceButtonSize.width, CGRectGetHeight(self.bounds));
 }
 
 - (void)setKeyItemGroups:(NSArray *)keyItemGroups {
@@ -65,6 +72,14 @@
     if (self.segmentedControl.numberOfSegments) {
         self.segmentedControl.selectedSegmentIndex = 0;
         [self segmentedControlValueChanged:self.segmentedControl];
+    }
+    
+    if (keyItemGroups.count > 1) {
+        self.segmentedControl.hidden = NO;
+        self.spaceButton.hidden = YES;
+    } else {
+        self.segmentedControl.hidden = YES;
+        self.spaceButton.hidden = NO;
     }
 }
 
@@ -95,6 +110,12 @@
 - (void)backspaceButtonTapped:(UIButton *)sender {
     if (self.backspaceButtonTappedBlock) {
         self.backspaceButtonTappedBlock();
+    }
+}
+
+- (void)spaceButtonTapped:(UIButton *)sender {
+    if (self.spaceButtonTappedBlock) {
+        self.spaceButtonTappedBlock();
     }
 }
 
