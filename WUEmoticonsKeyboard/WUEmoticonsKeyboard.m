@@ -30,13 +30,8 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
 #pragma mark - TextInput
 
 - (void)setInputViewToView:(UIView *)view {
-    if (self.textInput.isFirstResponder) {
-        [self.textInput resignFirstResponder];
-        self.textInput.inputView = view;
-        [self.textInput becomeFirstResponder];
-    }else{
-        self.textInput.inputView = view;
-    }
+    self.textInput.inputView = view;
+    [self.textInput reloadInputViews];
 }
 
 - (void)attachToTextInput:(UIResponder<UITextInput> *)textInput {
