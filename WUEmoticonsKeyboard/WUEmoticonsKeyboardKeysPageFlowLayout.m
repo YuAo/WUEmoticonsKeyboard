@@ -39,11 +39,11 @@
 }
 
 - (NSInteger)numberOfItemsPerRow {
-    return floor((self.avaliableSizePerPage.width + self.itemSpacing)/(self.itemSize.width + self.itemSpacing));
+    return floor((self.avaliableSizePerPage.width + self.itemSpacing)/(self.itemSize.width + self.itemSpacing)) ?: 1;
 }
 
 - (NSInteger)numberOfRowsPerPage {
-    return floor((self.avaliableSizePerPage.height + self.lineSpacing)/(self.itemSize.height + self.lineSpacing));
+    return floor((self.avaliableSizePerPage.height + self.lineSpacing)/(self.itemSize.height + self.lineSpacing)) ?: 1;
 }
 
 - (NSInteger)numberOfItemsPerPage {
@@ -56,10 +56,6 @@
     }else{
         return YES;
     }
-}
-
-- (void)prepareLayout {
-    //We do nothing...
 }
 
 - (CGSize)collectionViewContentSize {
