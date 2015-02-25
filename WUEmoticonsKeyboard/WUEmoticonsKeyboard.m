@@ -115,26 +115,22 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
 #pragma mark - create & init
 
 - (id)init {
-    return [self initWithFrame:CGRectZero];
+    return [self initWithFrame:(CGRect){CGPointZero,WUEmoticonsKeyboardDefaultSize}];
 }
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self setup];
+        [self setupEmoticonsKeyboard];
     }
     return self;
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self setup];
+    [self setupEmoticonsKeyboard];
 }
 
-- (void)setup {
-    if (CGRectIsEmpty(self.bounds)) {
-        self.bounds = (CGRect){CGPointZero,WUEmoticonsKeyboardDefaultSize};
-    }
-    
+- (void)setupEmoticonsKeyboard {
     self.backgroundColor = [UIColor blackColor];
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
