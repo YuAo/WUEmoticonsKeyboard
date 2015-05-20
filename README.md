@@ -4,7 +4,7 @@ WUEmoticonsKeyboard
 ![CocoaPods Platform](https://img.shields.io/cocoapods/p/WUEmoticonsKeyboard.svg?style=flat-square)
 ![CocoaPods Version](https://img.shields.io/cocoapods/v/WUEmoticonsKeyboard.svg?style=flat-square)
 ![CocoaPods License](https://img.shields.io/cocoapods/l/WUEmoticonsKeyboard.svg?style=flat-square)
-![TravisCI](https://api.travis-ci.org/YuAo/WUEmoticonsKeyboard.svg?branch=master)
+[![Build Status](https://travis-ci.org/YuAo/WUEmoticonsKeyboard.svg?branch=master)](https://travis-ci.org/YuAo/WUEmoticonsKeyboard)
 
 Customizable emoticons keyboard for iOS.
 
