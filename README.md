@@ -1,5 +1,11 @@
 WUEmoticonsKeyboard
 ===================
+
+![CocoaPods Platform](https://img.shields.io/cocoapods/p/WUEmoticonsKeyboard.svg?style=flat-square)
+![CocoaPods Version](https://img.shields.io/cocoapods/v/WUEmoticonsKeyboard.svg?style=flat-square)
+![CocoaPods License](https://img.shields.io/cocoapods/l/WUEmoticonsKeyboard.svg?style=flat-square)
+![TravisCI](https://api.travis-ci.org/YuAo/WUEmoticonsKeyboard.svg?branch=master)
+
 Customizable emoticons keyboard for iOS.
 
 WUEmoticonsKeyboard is created under the development of [Weico+](http://plus.weico.com), and is already being used in __[Weico+](http://plus.weico.com) for iOS__'s production code.
