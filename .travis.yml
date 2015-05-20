@@ -1,3 +1,4 @@
 language: objective-c
+xcode_sdk: iphonesimulator
 xcode_project: WUEmoticonsKeyboardDemo/WUEmoticonsKeyboardDemo.xcodeproj # path to your xcodeproj folder
 xcode_scheme: WUEmoticonsKeyboardDemo
